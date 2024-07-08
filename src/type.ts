@@ -1,19 +1,12 @@
-export type test = {
+export type Marka = {
   id: number;
   name: string;
   img: string;
-  status: string;
-  savolId: number;
-  science: string;
 };
-export type savol = {
+export type shartnoma = {
   id: number;
-  testId: number;
-  text: string;
-  a: string;
-  b: string;
-  c: string;
-  d: string;
-  trueAnswer: string;
-  status: string;
+  MoshinaRang: string;
+  MarkaId: number;
+  BuyurtmaSana: string;
+  XaridorIsm: string;
 };

@@ -16,147 +16,14 @@
 
 </head>
 <style>
-    #CategoryBody img {
-        max-height: 30vh;
-    }
 
-    .ModalImg {
-        width: 100%;
-        max-height: 30vh !important;
-    }
-
-    .iconRed {
-        width: 13px !important;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        height: 13px !important;
-        background-color: red !important;
-        position: absolute;
-        top: -3px;
-        border-radius: 50%;
-        right: -5px;
-        font-size: 11px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        color: white;
-    }
-
-    #HeaderBasket {
-        position: relative;
-    }
 </style>
 
 
 <body>
-    <header class=" bg-body-tertiary p-3" id="HeaderPage">
-        <div class="container justify-content-between d-flex align-items-center">
-            <div class="d-flex gap-3">
-                <div id="MagezinId">
-                    <h3>Savollar</h3>
-                </div>
-                <div class="mt-2" id="adminIcon">
-                    <i class="fa-solid fa-circle-user fs-5"></i>
-                </div>
-            </div>
-            <div id="HeaderBasket">
-                <button class="btn p-0"> <i class=" fa fa-shop fs-5 " aria-hidden="true"></i>
-                    <div class="iconRed d-none">0</div>
-                </button>
-            </div>
-        </div>
-    </header>
-    <section id="ShopBody">
-        <div class="container py-4">
 
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <h3>Mavzular</h3>
-                    <div class="row row-gap-3" id="ProductsBody"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width: 380px;">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="productModal">product</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div id="modal-body">
-                    <!-- <div>
-                        <div class="d-flex justify-content-center">
-                            <img class="rounded"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS23ntUsE_R957Y_FugNX1MX_p31wuXs9O_A&s"
-                                alt="">
-                        </div>
-                        <div class="d-flex justify-content-start mt-3">
-                            <div class="ps-4">
-                                <h5>Yog'</h5>
-                                <p>Semichka yog'i</p>
-                                <p>18 so'm</p>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="Buying">Qabul qilish</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- basket modal -->
-    <!-- Modal -->
-    <div class="modal fade " id="basketModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen ">
-            <div class="modal-content text-dark">
-                <div class="modal-header  p-2 px-4">
-                    <h1 class="modal-title fs-3 m-0 text-dark " id="exampleModalLabel">Yoqtirilgan savollar toplanmasi
-                    </h1>
-                    <button type="button" class="btn-close bg-white   " data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="basketBody" class="row row-gap-2">
-                        <h2 class="text-center text-secondary">Xozircha xech narsa tanlamadingiz !</h2>
-                    </div>
-                </div>
-                <div class="modal-footer  ">
-                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" id="basketClose">Close
-                    </button>
-                    <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" id="basketSave">
-                        Save
-                    </button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="bg-body-tertiary d-none  " id="loginId" style="height:89vh">
-        <div class="container">
-            <div class="row justify-content-center align-items-center" style="height: 70vh;">
-                <div class="col-4">
-                    <h2 id="h2login"></h2>
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">login</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="qwe@mail.ru">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="123">
-                        </div>
-
-                        <button type="button" class="btn btn-primary" id="Submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="bodya">
-        <div class="app-container d-none" id="AdminPage">
+        <div class="app-container " id="AdminPage">
             <div class="sidebar" id="SidebarCLose">
                 <div class="sidebar-header">
                     <div class="app-icon">
@@ -171,7 +38,7 @@
                                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                                 <polyline points="9 22 9 12 15 12 15 22" />
                             </svg>
-                            <span>Mavzular</span>
+                            <span>Markalar</span>
                         </a>
                     </li>
                     <li class="sidebar-list-item " id="TwoSidebar">
@@ -183,7 +50,7 @@
                                 <line x1="3" y1="6" x2="21" y2="6" />
                                 <path d="M16 10a4 4 0 0 1-8 0" />
                             </svg>
-                            <span>Testlar</span>
+                            <span>Shartnomalar</span>
                         </a>
                     </li>
 
@@ -194,8 +61,6 @@
                     <button class="btn m-0" id="BtnSidebar">
                         <i class="fa-solid fa-bars text-white "></i>
                     </button>
-                    <button class="btn" id="HousePage">
-                        <i class="fa-solid fa-house text-white text-center"></i></button>
                     <div class="app-content-actions-wrapper" id="SerachNOne">
                         <input class="search-bar" placeholder="Search..." type="text">
 
@@ -205,111 +70,6 @@
                     </div>
                 </div>
                 <div class="products-area-wrapper tableView" id="tableIn">
-                    <!-- <div class="products-header">
-                        <div class="product-cell image">
-                            Items
-                            <button class="sort-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
-                                    <path fill="currentColor"
-                                        d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="product-cell category">Category<button class="sort-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
-                                    <path fill="currentColor"
-                                        d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
-                                </svg>
-                            </button></div>
-                        <div class="product-cell status-cell">Status<button class="sort-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
-                                    <path fill="currentColor"
-                                        d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
-                                </svg>
-                            </button></div>
-                        <div class="product-cell sales">Sales<button class="sort-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
-                                    <path fill="currentColor"
-                                        d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
-                                </svg>
-                            </button></div>
-                        <div class="product-cell stock">Stock<button class="sort-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
-                                    <path fill="currentColor"
-                                        d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
-                                </svg>
-                            </button></div>
-                        <div class="product-cell price">Price<button class="sort-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
-                                    <path fill="currentColor"
-                                        d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
-                                </svg>
-                            </button></div>
-                    </div>
-                    <div class="products-row">
-
-                        <div class="product-cell image">
-                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                                alt="product">
-                            <span>Ocean</span>
-                        </div>
-                        <div class="product-cell category"><span class="cell-label">Category:</span>Furniture</div>
-                        <div class="product-cell status-cell">
-                            <span class="cell-label">Status:</span>
-                            <span class="status active">Active</span>
-                        </div>
-                        <div class="product-cell sales"><span class="cell-label">Sales:</span>11</div>
-                        <div class="product-cell stock"><span class="cell-label">Stock:</span>36</div>
-                        <div class="product-cell price"><span class="cell-label">Price:</span>$560</div>
-                    </div>
-                    <div class="products-row">
-
-                        <div class="product-cell image">
-                            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8a2l0Y2hlbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                alt="product">
-                            <span>Lou</span>
-                        </div>
-                        <div class="product-cell category"><span class="cell-label">Category:</span>Kitchen</div>
-                        <div class="product-cell status-cell">
-                            <span class="cell-label">Status:</span>
-                            <span class="status disabled">Disabled</span>
-                        </div>
-                        <div class="product-cell sales"><span class="cell-label">Sales:</span>6</div>
-                        <div class="product-cell stock"><span class="cell-label">Stock:</span>46</div>
-                        <div class="product-cell price"><span class="cell-label">Price:</span>$710</div>
-                    </div>
-                    <div class="products-row">
-
-                        <div class="product-cell image">
-                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60"
-                                alt="product">
-                            <span>Yellow</span>
-                        </div>
-                        <div class="product-cell category"><span class="cell-label">Category:</span>Decoration</div>
-                        <div class="product-cell status-cell">
-                            <span class="cell-label">Status:</span>
-                            <span class="status active">Active</span>
-                        </div>
-                        <div class="product-cell sales"><span class="cell-label">Sales:</span>61</div>
-                        <div class="product-cell stock"><span class="cell-label">Stock:</span>56</div>
-                        <div class="product-cell price"><span class="cell-label">Price:</span>$360</div>
-                    </div>
-                    <div class="products-row">
-
-                        <div class="product-cell image">
-                            <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmVkcm9vbXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                alt="product">
-                            <span>Dreamy</span>
-                        </div>
-                        <div class="product-cell category"><span class="cell-label">Category:</span>Bedroom</div>
-                        <div class="product-cell status-cell">
-                            <span class="cell-label">Status:</span>
-                            <span class="status disabled">Disabled</span>
-                        </div>
-                        <div class="product-cell sales"><span class="cell-label">Sales:</span>41</div>
-                        <div class="product-cell stock"><span class="cell-label">Stock:</span>66</div>
-                        <div class="product-cell price"><span class="cell-label">Price:</span>$260</div>
-                    </div> -->
 
                 </div>
             </div>
@@ -328,17 +88,11 @@
         </div>
         <div class="offcanvas-body">
             <div class="mb-3">
-                <label for="ucerPhoto" class="form-label">Photo</label>
+                <label for="ucerPhoto" class="form-label">Rasmi</label>
                 <input type="text" class="form-control" id="ucerPhoto" placeholder="https:" />
-                <label for="ucerName" class="form-label mt-2">Category</label>
-                <input type="text" class="form-control" id="ucerName" placeholder="Category" />
-                <label for="optio" class="form-label mt-2">Status</label>
-                <select class="form-select " aria-label="Default select example" id="optio">
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                </select>
-                <label for="scienceInput" class="form-label mt-2">ScienceInput</label>
-                <input type="text" class="form-control" id="scienceInput" placeholder="Category" />
+
+                <label for="ucerName" class="form-label mt-2">Nomi</label>
+                <input type="text" class="form-control" id="ucerName" placeholder="Moshina nomi" />
 
 
             </div>
@@ -347,6 +101,66 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label for="editName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="editName" placeholder="Enter name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editImg" class="form-label">Image URL</label>
+                            <input type="text" class="form-control" id="editImg" placeholder="Enter image URL">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal shartnoma-->
+    <div class="modal fade" id="ShartnomaEdit" tabindex="-1" aria-labelledby="ShartnomaEdit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ShartnomaEdit">Shartnoma</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label for="editIsmiShartnoma" class="form-label">Xaridor Ismi </label>
+                            <input type="text" class="form-control" id="editIsmiShartnoma" placeholder="Enter name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDatagShartnoma" class="form-label">Buyurtma Sanasi</label>
+                            <input type="text" class="form-control" id="editDatagShartnoma"
+                                placeholder="Enter image URL">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editColorShartnoma" class="form-label">Moshina Rangi </label>
+                            <input type="text" class="form-control" id="editColorShartnoma"
+                                placeholder="Enter image URL">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveShartnoma">Save </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

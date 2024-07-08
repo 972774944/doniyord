@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/toastify-js": "^1.12.3",
+    "typescript-toastify": "^1.0.4"
+  }
+}

@@ -1,7 +1,6 @@
-import { test, savol } from "./type";
+import { Marka, shartnoma } from "./type";
 import { mySidebarUcer } from "./saidebar";
 import { headres, Testheadres } from "./elemenst";
-
 const OneSidebar = document.querySelector("#OneSidebar") as HTMLLIElement;
 const TwoSidebar = document.querySelector("#TwoSidebar") as HTMLLIElement;
 const BtnSidebar = document.querySelector("#BtnSidebar") as HTMLButtonElement;
@@ -12,9 +11,6 @@ const addNewUcerBtn = document.querySelector(
   "#addNewUcerBtn"
 ) as HTMLButtonElement;
 const SerachNOne = document.querySelector("#SerachNOne") as HTMLDivElement;
-const addbtnNone = document.querySelector("#addbtnNone") as HTMLDivElement;
-
-const HousePage = document.querySelector("#HousePage") as HTMLButtonElement;
 let serachInput = document.querySelector(".search-bar") as HTMLInputElement;
 TwoSidebar.addEventListener("click", () => {
   OneSidebar.classList.remove("active");
@@ -41,43 +37,49 @@ BtnSidebar.addEventListener("click", () => {
 
   sidebarOpen = !sidebarOpen;
 });
-let FilteRender: number;
+
+let tests: any;
 async function render() {
   try {
     // @ts-ignore
-    let response = await axios.get("https://46d4deb0e08aaad2.mokky.dev/test");
+    let response = await axios.get(
+      "https://46d4deb0e08aaad2.mokky.dev/Markalar"
+    );
     console.log(response);
+    tests = response.data;
     tableView.style.height = "100vh";
     tableView.innerHTML = headres;
-    response.data.map((item: test) => {
-      FilteRender = item.savolId;
+    response.data.map((item: Marka) => {
       const div = document.createElement("div");
-      div.className = "products-row";
+      div.className = "products-row ";
       div.innerHTML += `
-      <div class="product-cell image">
-                            <img src="${item.img}"
+      <div class="product-cell ">
+                            <img src="${item.img}" class="w-25 h-25"
                                 alt="product">
                         </div>
-                        <div class="product-cell category"><span class="cell-label">Category:</span>${item.name}</div>
-                        <div class="product-cell status-cell">
-                            <span class="cell-label">Status:</span>
-                            <span class="status disabled">${item.status}</span>
-                        </div>
-                        <div class="product-cell sales"><span class="cell-label">Sales:</span>${item.science}</div>
+                        <div class="product-cell category"><span class="cell-label">Name:</span>${item.name}</div>
+                        
                        </div>
                     </div>
       `;
       const divtrash = document.createElement("div");
-      divtrash.className = "product-cell sales";
+      divtrash.className = "product-cell sales ";
+      const divEdit = document.createElement("div");
+      divtrash.className = "product-cell sales ";
+
       //   edit
       const btnEdit = document.createElement("button");
       btnEdit.className = "btn p-1";
       btnEdit.innerHTML = `<i class="fa-solid fa-pen-to-square text-white"></i> `;
+      divEdit.appendChild(btnEdit);
+      div.addEventListener("click", Testrender);
+      div.appendChild(btnEdit);
+      tableView.appendChild(div);
+      btnEdit.addEventListener("click", () => openEditModal(item));
       //   trash
       const btnTrash = document.createElement("button");
       btnTrash.className = "btn p-1";
       btnTrash.innerHTML = `<i class="fa-solid fa-trash text-danger"></i> `;
-      divtrash.appendChild(btnEdit);
       divtrash.appendChild(btnTrash);
       div.addEventListener("click", Testrender);
       div.appendChild(divtrash);
@@ -99,46 +101,23 @@ async function postNewUcer() {
   try {
     let nameInput = document.getElementById("ucerName") as HTMLInputElement;
     let Inputphoto = document.getElementById("ucerPhoto") as HTMLInputElement;
-    let scienceInput = document.getElementById(
-      "scienceInput"
-    ) as HTMLInputElement;
-    const optio = document.querySelector("#optio") as HTMLSelectElement;
 
-    if (optio.value == "Inactive") {
-      return;
-    } else {
-      //@ts-ignore
-      await axios.post("https://46d4deb0e08aaad2.mokky.dev/test", {
-        name: nameInput.value,
-        img: Inputphoto.value,
-        science: scienceInput.value,
-        status: optio.value,
-      });
-      nameInput.value = " ";
-      Inputphoto.value = " ";
-      scienceInput.value = " ";
-      render();
+    //@ts-ignore
+    await axios.post("https://46d4deb0e08aaad2.mokky.dev/Markalar", {
+      name: nameInput.value,
+      img: Inputphoto.value,
+    });
+    nameInput.value = " ";
+    Inputphoto.value = " ";
+    render();
 
-      mySidebarUcer.hide();
-    }
+    mySidebarUcer.hide();
   } catch (error) {
     console.log(error);
   }
 }
 addNewUcerBtn.className = "btn btn-outline-success";
 addNewUcerBtn.addEventListener("click", postNewUcer);
-
-// home
-const HeaderPage = document.querySelector("#HeaderPage") as HTMLElement;
-const ShopBody = document.querySelector("#ShopBody") as HTMLDivElement;
-const AdminPage = document.querySelector("#AdminPage") as HTMLDivElement;
-
-HousePage.addEventListener("click", () => {
-  HeaderPage.classList.remove("d-none");
-  ShopBody.classList.remove("d-none");
-  AdminPage.classList.add("d-none");
-});
-
 // search
 
 async function SearchChange() {
@@ -148,26 +127,22 @@ async function SearchChange() {
     ) as HTMLInputElement;
     //@ts-ignore
     const respons = await axios.get(
-      `https://46d4deb0e08aaad2.mokky.dev/test/?name=*${serachInputNew.value}`
+      `https://46d4deb0e08aaad2.mokky.dev/Markalar/?name=*${serachInputNew.value}`
     );
     tableView.style.height = "86vh";
     tableView.innerHTML = headres;
 
-    respons.data.map((item: test) => {
+    respons.data.map((item: Marka) => {
       const div = document.createElement("div");
       div.className = " products-row";
 
       div.innerHTML += `
-      <div class="product-cell image">
-                            <img src="${item.img}"
+       <div class="product-cell ">
+                            <img src="${item.img}" class="w-25 h-25"
                                 alt="product">
                         </div>
-                        <div class="product-cell category"><span class="cell-label">Category:</span>${item.name}</div>
-                        <div class="product-cell status-cell">
-                            <span class="cell-label">Status:</span>
-                            <span class="status disabled">${item.status}</span>
-                        </div>
-                        <div class="product-cell sales"><span class="cell-label">Sales:</span>${item.science}</div>
+                        <div class="product-cell category"><span class="cell-label">Name:</span>${item.name}</div>
+                        
                        </div>
                     </div>
       `;
@@ -198,7 +173,7 @@ serachInput.addEventListener("change", SearchChange);
 async function deletePRdoduct(id: number) {
   try {
     // @ts-ignore
-    await axios.delete(`https://46d4deb0e08aaad2.mokky.dev/savol/${id}`);
+    await axios.delete(`https://46d4deb0e08aaad2.mokky.dev/Shartnomalar/${id}`);
     Testrender();
   } catch (error) {
     console.log(error);
@@ -208,7 +183,7 @@ async function deletePRdoduct(id: number) {
 async function deletePRdoductT(id: number) {
   try {
     // @ts-ignore
-    await axios.delete(`https://46d4deb0e08aaad2.mokky.dev/test/${id}`);
+    await axios.delete(`https://46d4deb0e08aaad2.mokky.dev/Markalar/${id}`);
     render();
     OneSidebar.classList.add("active");
     TwoSidebar.classList.remove("active");
@@ -222,24 +197,27 @@ const Testrender = async () => {
   TwoSidebar.classList.add("active");
   try {
     // @ts-ignore
-    let respon = await axios.get("https://46d4deb0e08aaad2.mokky.dev/savol");
+    let respon = await axios.get(
+      `https://46d4deb0e08aaad2.mokky.dev/Shartnomalar`
+    );
+    //?testId=${tests.id}
     console.log(respon);
     const res = respon.data;
     tableView.style.height = "100vh";
     tableView.innerHTML = Testheadres;
-    res.map((item: savol) => {
+    res.map((item: shartnoma) => {
       const div = document.createElement("div");
       div.className = "products-row";
       div.innerHTML += `
       <div class="product-cell image">
-                            <p>${item.text}</p>
+                            <p>${item.XaridorIsm}</p>
+                            
                         </div>
-                        <div class="product-cell category"><span class="cell-label">Category:</span>${item.a},${item.b},${item.c},${item.d}</div>
                         <div class="product-cell status-cell">
                             <span class="cell-label">Status:</span>
-                            <span class="status disabled">${item.status}</span>
+                            <span class="status disabled">${item.BuyurtmaSana}</span>
                         </div>
-                        <div class="product-cell sales"><span class="cell-label">Sales:</span>${item.trueAnswer}</div>
+                        <div class="product-cell sales"><span class="cell-label">Sales:</span>${item.MoshinaRang}</div>
                        </div>
                     </div>
       `;
@@ -248,6 +226,7 @@ const Testrender = async () => {
       //   edit
       const btnEdit = document.createElement("button");
       btnEdit.className = "btn p-1";
+      btnEdit.addEventListener("click", () => openEditModalShartnoma(item));
       btnEdit.innerHTML = `<i class="fa-solid fa-pen-to-square text-white"></i> `;
       //   trash
       const btnTrash = document.createElement("button");
@@ -264,3 +243,73 @@ const Testrender = async () => {
     console.log("filet natori");
   }
 };
+function openEditModal(item: Marka) {
+  //@ts-ignore
+  const editModal = new bootstrap.Modal(document.getElementById("editModal")!);
+  const editNameInput = document.getElementById("editName") as HTMLInputElement;
+  const editImgInput = document.getElementById("editImg") as HTMLInputElement;
+
+  editNameInput.value = item.name;
+  editImgInput.value = item.img;
+
+  editModal.show();
+
+  const saveChangesBtn = document.getElementById("saveChanges")!;
+  saveChangesBtn.addEventListener("click", async () => {
+    try {
+      //@ts-ignore
+      await axios.patch(
+        `https://46d4deb0e08aaad2.mokky.dev/Markalar/${item.id}`,
+        {
+          name: editNameInput.value,
+          img: editImgInput.value,
+        }
+      );
+
+      editModal.hide();
+      render();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
+function openEditModalShartnoma(item: shartnoma) {
+  //@ts-ignore
+  const ShartnomaEdit = new bootstrap.Modal(
+    document.getElementById("ShartnomaEdit")!
+  );
+  ShartnomaEdit.show();
+  const editIsmiShartnoma = document.getElementById(
+    "editIsmiShartnoma"
+  ) as HTMLInputElement;
+  const editDatagShartnoma = document.getElementById(
+    "editDatagShartnoma"
+  ) as HTMLInputElement;
+  const editColorShartnoma = document.getElementById(
+    "editColorShartnoma"
+  ) as HTMLInputElement;
+
+  editIsmiShartnoma.value = item.XaridorIsm;
+  editDatagShartnoma.value = item.BuyurtmaSana;
+  editColorShartnoma.value = item.MoshinaRang;
+
+  const saveShartnomaBtn = document.getElementById("saveShartnoma")!;
+  saveShartnomaBtn.addEventListener("click", async () => {
+    try {
+      //@ts-ignore
+      await axios.patch(
+        `https://46d4deb0e08aaad2.mokky.dev/Shartnomalar/${item.id}`,
+        {
+          XaridorIsm: editIsmiShartnoma.value,
+          BuyurtmaSana: editDatagShartnoma.value,
+          MoshinaRang: editColorShartnoma.value,
+        }
+      );
+
+      ShartnomaEdit.hide();
+      Testrender();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
